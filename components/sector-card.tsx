@@ -1,0 +1,16 @@
+import Image from "next/image";
+import Link from "next/link";
+import type { Sector } from "@/lib/site";
+
+export function SectorCard({ sector }: { sector: Sector }) {
+  return (
+    <Link className="sector-card" href={`/sectors/${sector.slug}`}>
+      <Image src={sector.image} alt={sector.alt} fill sizes="(max-width: 920px) 100vw, 50vw" />
+      <div className="sector-overlay">
+        <h3>{sector.name}</h3>
+        <span>Explore sector →</span>
+        <p className="sector-details">{sector.description}</p>
+      </div>
+    </Link>
+  );
+}
