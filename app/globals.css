@@ -125,6 +125,16 @@ img {
   .brand {
     font-size: 0.95rem;
   }
+  .hero-grid,
+  .split-grid,
+  .statement,
+  .footer-grid,
+  .form-grid,
+  .content-grid,
+  .editorial-row,
+  .pathways {
+    grid-template-columns: 1fr;
+  }
 }
 
 .desktop-nav {
