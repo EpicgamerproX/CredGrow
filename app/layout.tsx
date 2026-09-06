@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Inter, Great_Vibes, Playfair_Display } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CookieConsent } from "@/components/cookie-consent";
+import { ScrollObserver } from "@/components/scroll-observer";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"], variable: "--font-cursive" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
@@ -26,8 +32,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${greatVibes.variable} ${playfair.variable}`}>
       <body>
+        <ScrollObserver />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

@@ -12,7 +12,8 @@ export const metadata = pageMetadata(
 export default function HomePage() {
   return (
     <>
-      <section className="hero">
+      <section className="hero" style={{ position: 'relative' }}>
+        <div className="cursive-overlay" style={{ top: '15%', right: '-5%' }}>Discover</div>
         <div className="hero-grid">
           <div>
             <p className="eyebrow">Credibility. Growth. Technology. Execution.</p>

@@ -31,7 +31,8 @@ export default async function SectorDetailPage({ params }: PageProps) {
 
   return (
     <main style={{ "--sector-color": sector.color, "--sector-color-light": sector.colorLight } as React.CSSProperties}>
-      <section className="page-hero">
+      <section className="page-hero" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="cursive-overlay" style={{ top: '5%', right: '10%' }}>{sector.name}</div>
         <div className="hero-grid">
           <div>
             <p className="eyebrow">{sector.name}</p>
