@@ -9,9 +9,11 @@ export function SectorCard({ sector }: { sector: Sector }) {
       <div className="sector-overlay">
         <h3>{sector.name}</h3>
         <span>Explore sector →</span>
-        <div className="sector-details">
-          <p>{sector.description}</p>
-          <p className="overview-text">{sector.landscape}</p>
+        <div className="sector-details-wrapper">
+          <div className="sector-details">
+            <p>{sector.description}</p>
+            <p className="overview-text">{sector.landscape}</p>
+          </div>
         </div>
       </div>
     </Link>

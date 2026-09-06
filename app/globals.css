@@ -157,12 +157,28 @@ h1, h2, h3, h4, h5, h6 {
   will-change: opacity, transform;
 }
 
+.sector-details-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 700ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sector-card:hover .sector-details-wrapper,
+.sector-card:focus-visible .sector-details-wrapper {
+  grid-template-rows: 1fr;
+}
+
 .sector-details {
-  max-height: 0;
-  opacity: 0;
   overflow: hidden;
-  transform: translateY(8px);
-  transition: max-height 600ms cubic-bezier(0.25, 0.8, 0.25, 1), opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1), transform 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sector-card:hover .sector-details,
+.sector-card:focus-visible .sector-details {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sector-details p {
@@ -173,13 +189,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   opacity: 0.85;
   margin-top: 12px !important;
-}
-
-.sector-card:hover .sector-details,
-.sector-card:focus-visible .sector-details {
-  max-height: 320px;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .reveal.visible, .section.visible, .section-tight.visible, .sector-card.visible, .editorial-row.visible {
@@ -459,29 +468,32 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(0) scale(1);
   z-index: 5;
   opacity: 1;
+  filter: blur(0);
 }
 
 .pos-right-1 {
-  transform: translateX(65%) scale(0.85);
+  transform: translateX(95%) scale(0.85);
   z-index: 4;
-  opacity: 0.5;
+  opacity: 0.6;
+  filter: blur(2px);
 }
 
 .pos-right-2 {
-  transform: translateX(120%) scale(0.7);
+  transform: translateX(180%) scale(0.7);
   z-index: 3;
   opacity: 0;
   pointer-events: none;
 }
 
 .pos-left-1 {
-  transform: translateX(-65%) scale(0.85);
+  transform: translateX(-95%) scale(0.85);
   z-index: 4;
-  opacity: 0.5;
+  opacity: 0.6;
+  filter: blur(2px);
 }
 
 .pos-left-2 {
-  transform: translateX(-120%) scale(0.7);
+  transform: translateX(-180%) scale(0.7);
   z-index: 3;
   opacity: 0;
   pointer-events: none;
