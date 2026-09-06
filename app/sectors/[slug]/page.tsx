@@ -30,7 +30,7 @@ export default async function SectorDetailPage({ params }: PageProps) {
   }
 
   return (
-    <>
+    <main style={{ "--sector-color": sector.color, "--sector-color-light": sector.colorLight } as React.CSSProperties}>
       <section className="page-hero">
         <div className="hero-grid">
           <div>
@@ -125,6 +125,6 @@ export default async function SectorDetailPage({ params }: PageProps) {
           )
         }}
       />
-    </>
+    </main>
   );
 }

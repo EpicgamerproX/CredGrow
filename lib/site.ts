@@ -24,6 +24,8 @@ export type Sector = {
   opportunities: string[];
   relationshipTypes: string[];
   sensitiveNote?: string;
+  color: string;
+  colorLight: string;
 };
 
 export const sectors: Sector[] = [
@@ -66,7 +68,9 @@ export const sectors: Sector[] = [
       "Project owners",
       "Financiers",
       "Technology providers"
-    ]
+    ],
+    color: "#00b060",
+    colorLight: "#eaf8f1"
   },
   {
     slug: "artificial-intelligence",
@@ -107,7 +111,9 @@ export const sectors: Sector[] = [
       "Enterprise customers",
       "Implementation partners",
       "Infrastructure providers"
-    ]
+    ],
+    color: "#7e22ce",
+    colorLight: "#f3e8ff"
   },
   {
     slug: "agriculture",
@@ -148,7 +154,9 @@ export const sectors: Sector[] = [
       "Equipment manufacturers",
       "Institutions",
       "Logistics providers"
-    ]
+    ],
+    color: "#d97706",
+    colorLight: "#fef3c7"
   },
   {
     slug: "defence",
@@ -191,7 +199,9 @@ export const sectors: Sector[] = [
       "Procurement ecosystem participants"
     ],
     sensitiveNote:
-      "Do not imply government endorsement, defence contracts, military access, security clearance or procurement status without documentary evidence."
+      "Do not imply government endorsement, defence contracts, military access, security clearance or procurement status without documentary evidence.",
+    color: "#334155",
+    colorLight: "#f1f5f9"
   },
   {
     slug: "aerospace",
@@ -232,7 +242,9 @@ export const sectors: Sector[] = [
       "Space startups",
       "Research institutions",
       "Testing facilities"
-    ]
+    ],
+    color: "#0284c7",
+    colorLight: "#e0f2fe"
   }
 ];
 

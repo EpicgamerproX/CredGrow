@@ -10,3 +10,22 @@
 Creating turbopack project { dir: 'C:\\Users\\achyu\\proj\\newproj\\CredGrow', testMode: true }
 
 ✓ Generated AGENTS.md and CLAUDE.md for AI agents. Set `agentRules: false` in next.config to disable.
+ GET / 200 in 2.9s (next.js: 2.7s, application-code: 161ms)
+ GET /sectors/aerospace 200 in 3.2s (next.js: 2.7s, generate-params: 463ms, application-code: 50ms)
+ GET / 200 in 209ms (next.js: 14ms, application-code: 195ms)
+ GET /sitemap.xml 200 in 636ms (next.js: 559ms, application-code: 77ms)
+ GET /contact 200 in 781ms (next.js: 714ms, application-code: 67ms)
+[Contact enquiry] lead received without email configuration {
+  name: 'Test User',
+  email: 'test@example.com',
+  phone: '',
+  organization: '',
+  enquiryType: 'General',
+  sector: '',
+  message: 'This is a valid local smoke test enquiry.',
+  consent: 'on',
+  marketingConsent: '',
+  company: ''
+}
+ POST /api/contact 200 in 713ms (next.js: 685ms, application-code: 27ms)
+ POST /api/contact 400 in 730ms (next.js: 720ms, application-code: 10ms)
