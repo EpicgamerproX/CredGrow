@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CtaBand } from "@/components/cta-band";
-import { SectorCard } from "@/components/sector-card";
+import { SectorCarousel } from "@/components/sector-carousel";
 import { pageMetadata, sectors, workAreas } from "@/lib/site";
 
 export const metadata = pageMetadata(
@@ -43,7 +43,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section reveal">
         <div className="container statement">
           <h2>Growth needs more than capital.</h2>
           <div className="prose">
@@ -60,7 +60,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-tight">
+      <section className="section-tight reveal">
         <div className="container">
           <p className="eyebrow">What we do</p>
           <h2 className="section-title">Capital, technology and execution need a shared operating model.</h2>
@@ -75,15 +75,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section reveal" style={{ overflow: 'hidden' }}>
         <div className="container">
           <p className="eyebrow">Sector ecosystem</p>
           <h2 className="section-title">Five sectors. One growth ecosystem.</h2>
-          <div className="sector-grid">
-            {sectors.map((sector) => (
-              <SectorCard sector={sector} key={sector.slug} />
-            ))}
-          </div>
+          <SectorCarousel sectors={sectors} />
         </div>
       </section>
 
