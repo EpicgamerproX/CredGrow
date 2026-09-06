@@ -31,9 +31,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} js`} suppressHydrationWarning>
+      <head>
+        <noscript>
+          <style>{`.js .reveal, .js .section, .js .section-tight, .js .editorial-row, .js .pathway, .js .sector-card, .js .split-grid > div, .js .legal, .js .band, .js .hero, .js .page-hero { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
+      </head>
       <body>
-        <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('js');` }} />
         <ScrollObserver />
         <a className="skip-link" href="#main-content">
           Skip to content

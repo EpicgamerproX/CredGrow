@@ -183,10 +183,13 @@ h1, h2, h3, h4, h5, h6 {
 .js .pathway,
 .js .sector-card,
 .js .split-grid > div,
-.js .legal {
+.js .legal,
+.js .band,
+.js .hero,
+.js .page-hero {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -198,13 +201,19 @@ h1, h2, h3, h4, h5, h6 {
 .js .sector-card.visible,
 .js .split-grid > div.visible,
 .js .legal.visible,
+.js .band.visible,
+.js .hero.visible,
+.js .page-hero.visible,
 .reveal.visible,
 .section.visible,
 .section-tight.visible,
 .editorial-row.visible,
 .pathway.visible,
 .sector-card.visible,
-.legal.visible {
+.legal.visible,
+.band.visible,
+.hero.visible,
+.page-hero.visible {
   opacity: 1;
   transform: translateY(0);
   will-change: auto;
