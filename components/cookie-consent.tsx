@@ -26,10 +26,19 @@ function readStoredPreferences() {
 }
 
 export function CookieConsent() {
-  const savedPreferences = readStoredPreferences();
-  const [visible, setVisible] = useState(!savedPreferences);
+  const [visible, setVisible] = useState(false);
   const [managing, setManaging] = useState(false);
-  const [preferences, setPreferences] = useState<Preferences>(savedPreferences || defaultPreferences);
+  const [preferences, setPreferences] = useState<Preferences>(defaultPreferences);
+
+  useEffect(() => {
+    const saved = readStoredPreferences();
+    if (saved) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPreferences(saved);
+    } else {
+      setVisible(true);
+    }
+  }, []);
 
   useEffect(() => {
     function openPreferences() {
@@ -52,8 +61,8 @@ export function CookieConsent() {
   }
 
   return (
-    <aside className="cookie-banner" aria-label="Cookie consent">
-      <strong>Cookie preferences</strong>
+    <aside role="dialog" className="cookie-banner" aria-labelledby="cookie-banner-title">
+      <strong id="cookie-banner-title">Cookie preferences</strong>
       <p>
         We use cookies to improve your experience, understand website usage and provide relevant
         functionality. Non-essential categories remain off until you choose otherwise.

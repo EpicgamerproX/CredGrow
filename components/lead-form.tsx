@@ -49,9 +49,22 @@ export function LeadForm({ kind, fields, submitLabel }: LeadFormProps) {
                 {field.required ? " *" : ""}
               </label>
               {field.type === "textarea" ? (
-                <textarea id={field.name} name={field.name} aria-invalid={Boolean(errors[field.name])} />
+                <textarea 
+                  id={field.name} 
+                  name={field.name} 
+                  aria-invalid={Boolean(errors[field.name])} 
+                  required={field.required}
+                  aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
+                />
               ) : field.type === "select" ? (
-                <select id={field.name} name={field.name} aria-invalid={Boolean(errors[field.name])} defaultValue="">
+                <select 
+                  id={field.name} 
+                  name={field.name} 
+                  aria-invalid={Boolean(errors[field.name])} 
+                  defaultValue=""
+                  required={field.required}
+                  aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
+                >
                   <option value="">Select</option>
                   {field.options?.map((option) => (
                     <option value={option} key={option}>
@@ -65,9 +78,15 @@ export function LeadForm({ kind, fields, submitLabel }: LeadFormProps) {
                   name={field.name}
                   type={field.type || "text"}
                   aria-invalid={Boolean(errors[field.name])}
+                  required={field.required}
+                  aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
                 />
               )}
-              {errors[field.name] ? <span className="field-error">{errors[field.name]}</span> : null}
+              {errors[field.name] ? (
+                <span id={`${field.name}-error`} className="field-error" role="alert">
+                  {errors[field.name]}
+                </span>
+              ) : null}
             </div>
           ))}
         </div>
@@ -78,12 +97,12 @@ export function LeadForm({ kind, fields, submitLabel }: LeadFormProps) {
             have read the Privacy Policy.
           </span>
         </label>
-        {errors.consent ? <span className="field-error">{errors.consent}</span> : null}
+        {errors.consent ? <span className="field-error" role="alert">{errors.consent}</span> : null}
         <label className="checkbox-label">
           <input type="checkbox" name="marketingConsent" />
           <span>I would like to receive updates and relevant communications from CredGrow.</span>
         </label>
-        {errors.form ? <span className="field-error">{errors.form}</span> : null}
+        {errors.form ? <span className="field-error" role="alert">{errors.form}</span> : null}
         {status ? (
           <div className="form-status" role="status">
             {status}

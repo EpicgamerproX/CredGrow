@@ -7,3 +7,5 @@ dist
 .env*.local
 !.env.example
 .DS_Store
+*.log
+dev-server.*.log

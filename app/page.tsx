@@ -33,7 +33,7 @@ export default function HomePage() {
           </div>
           <div className="hero-image">
             <Image
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=75"
               alt="Industrial landscape representing infrastructure, technology and growth"
               fill
               priority

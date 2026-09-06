@@ -33,11 +33,22 @@ export function SectorCarousel({ sectors }: { sectors: Sector[] }) {
     return "hidden";
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") prev();
+    if (e.key === "ArrowRight") next();
+  };
+
   return (
     <div 
       className="sector-carousel"
+      role="region"
+      aria-roledescription="carousel"
+      aria-live={isPaused ? "polite" : "off"}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      aria-label="Sectors carousel"
     >
       <button className="carousel-btn prev" onClick={prev} aria-label="Previous sector">
         ←
@@ -51,6 +62,11 @@ export function SectorCarousel({ sectors }: { sectors: Sector[] }) {
           <div
             key={sector.slug}
             className={`carousel-slide pos-${getPosition(idx)}`}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`Sector ${idx + 1} of ${sectors.length}`}
+            aria-hidden={idx !== currentIndex}
+            {...(idx !== currentIndex ? { inert: true } : {})}
             onClick={() => {
               if (idx !== currentIndex) {
                 setCurrentIndex(idx);
