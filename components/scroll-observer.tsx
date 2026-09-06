@@ -24,7 +24,7 @@ export function ScrollObserver() {
         }
       );
 
-      const elements = document.querySelectorAll(".reveal, .section, .section-tight, .sector-card, .editorial-row");
+      const elements = document.querySelectorAll(".reveal, .section, .section-tight, .editorial-row");
       elements.forEach((el) => observer.observe(el));
 
       return () => {

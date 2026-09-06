@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(-5deg);
 }
 
-.reveal, .section, .section-tight, .sector-card, .editorial-row {
+.reveal, .section, .section-tight, .editorial-row {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -191,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 12px !important;
 }
 
-.reveal.visible, .section.visible, .section-tight.visible, .sector-card.visible, .editorial-row.visible {
+.reveal.visible, .section.visible, .section-tight.visible, .editorial-row.visible {
   opacity: 1;
   transform: translateY(0);
 }
