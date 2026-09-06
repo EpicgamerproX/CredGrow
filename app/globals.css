@@ -265,7 +265,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-panel a {
   display: block;
-  font-size: clamp(2rem, 9vw, 4rem);
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
   font-weight: 800;
   margin: 12px 0;
 }
@@ -784,6 +784,19 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   right: 18px;
   z-index: 200;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
 }
 
 .cookie-actions {
