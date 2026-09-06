@@ -4,7 +4,6 @@ export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:300
 
 export const navItems = [
   { label: "About", href: "/about" },
-  { label: "Sectors", href: "/sectors" },
   { label: "Investors", href: "/investors" },
   { label: "Contractors", href: "/contractors" },
   { label: "Contact", href: "/contact" }

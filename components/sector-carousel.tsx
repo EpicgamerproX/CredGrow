@@ -6,6 +6,7 @@ import type { Sector } from "@/lib/site";
 
 export function SectorCarousel({ sectors }: { sectors: Sector[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const next = useCallback(() => {
     setCurrentIndex((current) => (current + 1) % sectors.length);
@@ -16,9 +17,10 @@ export function SectorCarousel({ sectors }: { sectors: Sector[] }) {
   }, [sectors.length]);
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(next, 6000); // Shift every 6 seconds
     return () => clearInterval(timer);
-  }, [next]);
+  }, [next, isPaused]);
 
   const getPosition = (index: number) => {
     const diff = (index - currentIndex + sectors.length) % sectors.length;
@@ -32,7 +34,18 @@ export function SectorCarousel({ sectors }: { sectors: Sector[] }) {
   };
 
   return (
-    <div className="sector-carousel">
+    <div 
+      className="sector-carousel"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <button className="carousel-btn prev" onClick={prev} aria-label="Previous sector">
+        ←
+      </button>
+      <button className="carousel-btn next" onClick={next} aria-label="Next sector">
+        →
+      </button>
+
       <div className="carousel-track">
         {sectors.map((sector, idx) => (
           <div
@@ -49,9 +62,6 @@ export function SectorCarousel({ sectors }: { sectors: Sector[] }) {
         ))}
       </div>
       <div className="carousel-controls">
-        <button className="carousel-btn" onClick={prev} aria-label="Previous sector">
-          ←
-        </button>
         <div className="carousel-dots">
           {sectors.map((_, idx) => (
             <button
@@ -62,9 +72,6 @@ export function SectorCarousel({ sectors }: { sectors: Sector[] }) {
             />
           ))}
         </div>
-        <button className="carousel-btn" onClick={next} aria-label="Next sector">
-          →
-        </button>
       </div>
     </div>
   );
