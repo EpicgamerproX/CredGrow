@@ -10,14 +10,14 @@
   --border: #dce3e6;
   --error: #d32f2f;
   --max: 1400px;
-  --pad: clamp(20px, 5vw, 80px);
+  --pad: clamp(16px, 5vw, 80px);
   --header-h: 72px;
 }
 
-* {
 html {
   scroll-behavior: smooth;
 }
+
 *,
 *::before,
 *::after {
@@ -136,8 +136,16 @@ img {
   .form-grid,
   .content-grid,
   .editorial-row,
-  .pathways {
+  .pathways,
+  .relationship-nodes {
     grid-template-columns: 1fr;
+  }
+  .pathway {
+    min-height: auto;
+  }
+  .hero-image,
+  .page-hero-image {
+    min-height: 280px;
   }
 }
 
@@ -184,9 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 .js .sector-card,
 .js .split-grid > div,
 .js .legal,
-.js .band,
-.js .hero,
-.js .page-hero {
+.js .band {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
@@ -202,8 +208,6 @@ h1, h2, h3, h4, h5, h6 {
 .js .split-grid > div.visible,
 .js .legal.visible,
 .js .band.visible,
-.js .hero.visible,
-.js .page-hero.visible,
 .reveal.visible,
 .section.visible,
 .section-tight.visible,
@@ -211,9 +215,7 @@ h1, h2, h3, h4, h5, h6 {
 .pathway.visible,
 .sector-card.visible,
 .legal.visible,
-.band.visible,
-.hero.visible,
-.page-hero.visible {
+.band.visible {
   opacity: 1;
   transform: translateY(0);
   will-change: auto;
@@ -239,7 +241,8 @@ h1, h2, h3, h4, h5, h6 {
   .js .pathway,
   .js .sector-card,
   .js .split-grid > div,
-  .js .legal {
+  .js .legal,
+  .js .band {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -341,10 +344,12 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--white);
   border-top: 1px solid var(--border);
   display: none;
-  inset: 72px 0 0 0;
+  inset: var(--header-h) 0 0 0;
   padding: 28px var(--pad);
   position: fixed;
   z-index: 99;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-panel a {
@@ -386,7 +391,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   display: grid;
   gap: clamp(32px, 6vw, 80px);
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   margin: 0 auto;
   max-width: var(--max);
 }
@@ -394,15 +399,15 @@ h1, h2, h3, h4, h5, h6 {
 .hero h1,
 .page-hero h1 {
   color: var(--navy);
-  font-size: clamp(3.4rem, 8vw, 8.5rem);
+  font-size: clamp(2.4rem, 8vw, 8.5rem);
   letter-spacing: 0;
-  line-height: 0.95;
+  line-height: 1.05;
   margin: 18px 0 24px;
   max-width: 960px;
 }
 
 .page-hero h1 {
-  font-size: clamp(3rem, 6.7vw, 7rem);
+  font-size: clamp(2.2rem, 6.7vw, 7rem);
 }
 
 .lead {
@@ -719,7 +724,7 @@ h1, h2, h3, h4, h5, h6 {
 .sector-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
 }
 
 .pill-list {
@@ -829,6 +834,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .checkbox-label input {
+  flex-shrink: 0;
   height: 18px;
   margin-top: 4px;
   width: 18px;
@@ -905,6 +911,9 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: none;
     border-left: none;
     border-right: none;
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow-y: auto;
   }
 
   .cookie-banner strong {
@@ -975,10 +984,16 @@ h1, h2, h3, h4, h5, h6 {
 
   .sector-carousel {
     padding: 10px 0 40px;
+    overflow: hidden;
   }
   
   .carousel-track {
     height: 320px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
   }
   
   .pos-right-1, .pos-left-1 {
@@ -1007,11 +1022,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .editorial-row {
     grid-template-columns: 1fr;
-  }
-
-  .hero-image,
-  .page-hero-image {
-    min-height: 320px;
   }
 }
 

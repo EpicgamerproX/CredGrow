@@ -34,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${inter.variable} ${playfair.variable} js`} suppressHydrationWarning>
       <head>
         <noscript>
-          <style>{`.js .reveal, .js .section, .js .section-tight, .js .editorial-row, .js .pathway, .js .sector-card, .js .split-grid > div, .js .legal, .js .band, .js .hero, .js .page-hero { opacity: 1 !important; transform: none !important; }`}</style>
+          <style>{`.js .reveal, .js .section, .js .section-tight, .js .editorial-row, .js .pathway, .js .sector-card, .js .split-grid > div, .js .legal, .js .band { opacity: 1 !important; transform: none !important; }`}</style>
         </noscript>
       </head>
       <body>

@@ -29,7 +29,7 @@ export function ScrollObserver() {
     );
 
     const selector =
-      ".reveal, .section, .section-tight, .editorial-row, .pathway, .sector-card, .split-grid > div, .legal, .band, .page-hero, .hero";
+      ".reveal, .section, .section-tight, .editorial-row, .pathway, .sector-card, .split-grid > div, .legal, .band";
     const elements = document.querySelectorAll(selector);
 
     elements.forEach((el) => observer.observe(el));
